@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v){
         switch(v.getId()){
             case R.id.btn_move_activity:
                 Intent moveIntent = new Intent(MainActivity.this,MoveActivity.class);
@@ -41,8 +41,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(moveWithDataIntent);
                 break;
             case R.id.btn_move_activity_object:
+                Person mPerson = new Person();
+                mPerson.setName("Bina Sarana Informatika");
+                mPerson.setAge(32);
+                mPerson.setEmail("ubsi@bsi.ac.id");
+                mPerson.setCity("DKI Jakarta");
+                Intent moveWithObjectIntent = new Intent(MainActivity.this, MoveWithObjectActivity.class);
+                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, mPerson);
+                startActivity(moveWithObjectIntent);
                 break;
-
         }
     }
+
 }
